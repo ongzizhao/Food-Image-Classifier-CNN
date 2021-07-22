@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+    <title>Blog &ndash; Layout Examples &ndash; Pure</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" >
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" >
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-8">
+        <span class="pure-menu-heading">MENU</span>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" href="/">Home</a>
+            </li>
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" href="/documentation">Documentation</a>
+            </li>
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" href="/predict">predict</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-7-8">
+        <div>
+            <div class="main">
+                <h1 class="content-title">SG Dishes CNN Image Classifier</h1>
+                <div class="description">
+                    This is a front-to-end project whereby a final web app is developed to classify 12 food images.
+                    <h2>Architecture of Model</h2>
+                    The model is built upon a ResNet50V2 model, followed by a global pooling, 512 neurons dense layer with ReLU and finally a softmax output with 12 classes. The weights in the base model is 
+                    kept fixed while the weights in the dense and softmax layers are trainable. This model has 1,055,244 trainable parameers
+                    <br><br>
+                    The 12 food items are chilli_crab, curry_puff, dim_sum, ice_kacang, kaya_toast, nasi_ayam, popiah, 
+                    roti_prata, sambal_stingray, satay, tau_huay, wanton_noodle.                   
+                    <br>
+                    <h2>Training</h2>
+                    The model is trained with an initial 1224 images of food items. The dataset is then expanded with various image augmentation techniques to generate more training images. 
+                    The images are rotated, translated, sheared, minimized, magnified and a cut out is randomly applied across the image. The dataset is expanded to 6244 images after image augmentation.
+                    <h2>Performance</h2>
+                    the model performed decently well with an accuracy of 70-75%
+                    <h2>Setting up</h2>
+                    <h3>Dependencies</h3>
+                    This project uses the Flask framework to set up and is runnng tensorflow for the deep learning model.
+                    <ul>
+                        <li>Python: 3.6.7</li>
+                        <li>Numpy: 1.18.5</li>
+                        <li>Pandas: 1.1.5</li>
+                        <li>Tensorflow: 2.0.0</li>
+                        <li>Pillow</li>
+                        <li>Flask: 1.1.2</li>
+                        <li>Gunicorn: 20.1.0</li>
+                        <li>H5py: 2.10.0  </li>
+                    </ul>
+                    <h3>Running the Flask web app</h3>
+                    To run the web app locally, you can deploy the web app locally using flask on the terminal
+                    <ol>
+                        <li>set FLASK_APP=app.py</li>
+                        <li>set FLASK_ENV=develpment</li>
+                        <li>set FLASK_RUN_PORT=8000</li>
+                        <li>set FLASK_RUN_host=0.0.0.0</li>
+                        <li>flask run </li>
+                    </ol>
+                    The flask web app will be run on locally on port 8000. Upload a food image and click submit to see the image uploaded. 
+                    Click Classify to see the results
+                    <br>
+                    <h2>Deployment</h2>
+                    The model is deployed using a docker contatiner on AISG polyaxon platform
+                    <br>
+                    The project is created using Flask, Gunicorn, with Pure-CSS as the frame work (a basic usage as i am still quite new to CSS and HTML). 
+                    <br>
+                    <h3>Folder Structure</h3>
+                    src
+                    <br>
+                    ├── app.py
+                    <br>
+                    ├── inference.py
+                    <br>
+                    ├── templates
+                    <br>
+                    
+                </div>
+            </div>
+
+            
+
+            <div class="footer">
+                <div class="foot-notes">
+                    <div class="credits">Created by Zi Zhao with PureCSS</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<style>
+    .sidebar {
+        background: rgb(40, 41, 43);
+        color: #fff;
+
+    }   
+
+    .pure-menu-list {s
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .pure-menu-heading {
+        border-bottom: 1px solid rgb(95, 96, 97);
+        color: rgb(95, 96, 97);
+        margin-top: 1em;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-size: 95%;
+    }
+
+    .pure-menu-item {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+    }
+    .pure-menu-item a {
+        background: transparent;
+        color: rgb(95, 96, 97);
+        margin-top: 1em;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-size: 85%;
+    }
+    .pure-menu-item a:hover,
+    .pure-menu-item a:hover {
+        text-decoration: none;
+    }
+
+    .main {
+        padding-left: 20px;
+        padding-right: 200px;
+        letter-spacing: 0.05em;
+        line-height: 25px;
+    }
+
+    .footer {
+        padding-left: 20px;
+    }
+
+    .credits {
+        color: rgb(70, 59, 45);
+        margin-top: 10em;
+        letter-spacing: 0.05em;
+        font-size: 85%;
+    }
+
+</style>
+</html>
+
