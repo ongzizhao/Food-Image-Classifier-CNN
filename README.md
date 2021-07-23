@@ -1,5 +1,5 @@
 # SG Dishes CNN Image Classifier
-This is a front-to-end project whereby a final web app is developed to classify 12 food images.
+This is a front-to-end project whereby a Flask web app is dockerized and deployed to classify 12 food images.
 
 ## Data Source
 Data can be downloaded as a tar file [here](https://drive.google.com/file/d/17rG2Bj56ESfVfOGUrMiTfK2x6IRXS8Gh/view?usp=sharing). Consist of 12 different food items totalling 1224 images. 
